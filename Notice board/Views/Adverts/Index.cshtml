@@ -1,0 +1,35 @@
+﻿@Model List<Advert>; 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category</th>
+      <th scope="col">City</th>
+      <th scope="col">Discription</th>
+      <th scope="col">Contact information</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach( var a in Model)
+      {
+      <tr>
+      <th scope="row">@a.Id</th>
+      <td>@a.Name </td>
+      <td>@a.Category</td>
+      <td>@a.City</td>
+      <td>@a.Description</td>
+      <td>@a.ContactInformation</td>
+      <td>
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-success">Detail</button> 
+  <button type="button" class="btn btn-danger ">Delete</button>
+</div>
+      </td>
+    </tr>
+      }
+       
+  </tbody>
+</table>
