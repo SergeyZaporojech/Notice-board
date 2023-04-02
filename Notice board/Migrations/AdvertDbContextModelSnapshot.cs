@@ -43,6 +43,7 @@ namespace Notice_board.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+                    
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -64,7 +65,7 @@ namespace Notice_board.Migrations
                             CategoryId = 1,
                             City = "Rovno",
                             ContactInformation = "0974585652",
-                            Description = "Normal view",
+                            Description = "Normal view",                            
                             Name = "MacBook 2019",
                             Price = 1500
                         },
@@ -74,7 +75,7 @@ namespace Notice_board.Migrations
                             CategoryId = 1,
                             City = "Luchk",
                             ContactInformation = "0634584521",
-                            Description = "Cool view",
+                            Description = "Cool view",                            
                             Name = "Iphone 13",
                             Price = 850
                         },
@@ -84,7 +85,7 @@ namespace Notice_board.Migrations
                             CategoryId = 1,
                             City = "Lviv",
                             ContactInformation = "0665241245",
-                            Description = "New",
+                            Description = "New",                            
                             Name = "MacBook 2021",
                             Price = 2200
                         });

@@ -24,7 +24,6 @@ namespace Notice_board.Controllers
 
         //GET: ~/adverts/index
         [HttpGet]      //defoult
-
         
         public IActionResult Index()
         {

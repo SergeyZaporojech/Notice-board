@@ -22,7 +22,6 @@ namespace Notice_board.Data
         new Advert(){Id=2, Name="Iphone 13", CategoryId=1,Price=850, City="Luchk",Description="Cool view",ContactInformation="0634584521"},
         new Advert(){Id=3, Name="MacBook 2021", CategoryId=1,Price=2200, City="Lviv",Description="New",ContactInformation="0665241245"}
             });
-
         }
                 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
