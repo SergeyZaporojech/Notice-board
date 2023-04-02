@@ -15,12 +15,11 @@ namespace Notice_board.Controllers
         //new Advert(){Id=3, Name="MacBook 2021", CategoryId=1,Price=2200, City="Lviv",Description="New",ContactInformation="0665241245"}
         //};
 
-        private AdvertDbContext context;
-
-        public AdvertsController() 
+        private readonly AdvertDbContext context;
+        public AdvertsController(AdvertDbContext context)
         {
-            context = new AdvertDbContext();
-        }
+            this.context = context;
+        }        
 
         //GET: ~/adverts/index
         [HttpGet]      //defoult

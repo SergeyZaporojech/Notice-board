@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Notice_board.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+string connStr = builder.Configuration.GetConnectionString("LocalDb");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<AdvertDbContext>(x => x.UseSqlServer(connStr));
 
 var app = builder.Build();
 
