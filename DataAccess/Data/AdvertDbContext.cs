@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Notice_board.Entities;
+﻿using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace Notice_board.Data
+namespace Data
 {
     public class AdvertDbContext : DbContext
     {

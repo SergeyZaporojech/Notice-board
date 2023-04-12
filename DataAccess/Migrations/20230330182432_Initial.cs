@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Notice_board.Migrations
+namespace Data.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

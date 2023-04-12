@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace Notice_board.Migrations
+namespace Data.Migrations
 {
     /// <inheritdoc />
     public partial class Price : Migration

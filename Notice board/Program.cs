@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Notice_board.Data;
+using Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

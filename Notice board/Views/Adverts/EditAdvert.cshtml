@@ -1,0 +1,58 @@
+﻿@model Data.Entities.Advert;
+
+<h1>Edit the advert</h1>
+
+<form asp-action="EditAdvert" method="post" class="row g-3">
+    <div class="col-md-12">
+        <label asp-for="Name" class="form-label">Ad title</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="Enter ad title">
+        <span asp-validation-for="Name" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control" placeholder="Enter product description" rows="3"></textarea>
+        <span asp-validation-for="Description" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="City" class="form-label">City</label>
+        <input asp-for="City" type="text" class="form-control" placeholder="Enter your City">
+        <span asp-validation-for="City" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" type="number" class="form-control" placeholder="Enter product price">
+        <span asp-validation-for="Price" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="ContactInformation" class="form-label">ContactInformation</label>
+        <input asp-for="ContactInformation" type="text" class="form-control" placeholder="Enter phone number">
+        <span asp-validation-for="ContactInformation" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Foto" class="form-label">Foto</label>
+       <input asp-for="Foto" type="text" class="form-control" placeholder="Enter url foto">
+           <span asp-validation-for="Foto" class="form-text text-danger"></span>       
+    </div>
+    <div class="col-md-12">
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId" asp-items="@ViewBag.CategoryList" class="form-select">
+            <option disabled selected>Choose...</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="form-text text-danger"></span>
+    </div>
+@*    <div class="col-12">
+        <div class="form-check">
+            <input asp-for="InStock" class="form-check-input" type="checkbox">
+            <label asp-for="InStock" class="form-check-label">
+                In Stock
+            </label>
+        </div>
+        <span asp-validation-for="InStock" class="form-text text-danger"></span>
+    </div>*@
+    <div class="col-6">
+        <a asp-action="Index" class="btn btn-dark w-100">Back</a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-success w-100">Save</button>
+    </div>
+</form>

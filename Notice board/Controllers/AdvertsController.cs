@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Notice_board.Data;
-using Notice_board.Entities;
+using Data;
+using Data.Entities;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Notice_board.Controllers
 {
@@ -19,7 +20,18 @@ namespace Notice_board.Controllers
         public AdvertsController(AdvertDbContext context)
         {
             this.context = context;
-        }        
+        }
+
+        private void LoadCategories()
+        {
+            // ViewData dictionary colleciton
+            //ViewData["CategoryList"] = ...
+
+            // ViewBag - dynamic property collection
+            ViewBag.CategoryList = new SelectList(context.Categories.ToList(), "Id", "Name");
+            //ViewBag.Username = "vladtymo";
+        }
+
 
         //GET: ~/adverts/index
         [HttpGet]      //defoult
@@ -48,6 +60,52 @@ namespace Notice_board.Controllers
                 return NotFound();
 
             return View(item);
+        }
+
+        public IActionResult CreateAdvert()
+        {
+            LoadCategories();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateAdvert(Advert advert)
+        {
+
+            // model validation
+            if (!ModelState.IsValid)
+            {
+                LoadCategories();
+                return View("CreateAdvert");
+            }
+           context.Adverts.Add(advert);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult EditAdvert(int id)
+        {
+            var advert = context.Adverts.Find(id);
+            if (advert == null)
+                return NotFound();  
+            LoadCategories();
+            return View(advert);
+        }
+
+        [HttpPost]
+        public IActionResult EditAdvert(Advert advert)
+        {
+
+            // model validation
+            if (!ModelState.IsValid)
+            {
+                LoadCategories();
+                return View("EditAdvert");
+            }
+            context.Adverts.Update(advert);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
     }

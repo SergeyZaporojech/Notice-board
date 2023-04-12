@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Notice_board.Data;
+using Data;
 
 #nullable disable
 
-namespace Notice_board.Migrations
+namespace Data.Migrations
 {
     [DbContext(typeof(AdvertDbContext))]
-    partial class AdvertDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330182432_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,53 +47,15 @@ namespace Notice_board.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Foto")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Adverts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            City = "Rovno",
-                            ContactInformation = "0974585652",
-                            Description = "Normal view",
-                            Name = "MacBook 2019",
-                            Price = 1500
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            City = "Luchk",
-                            ContactInformation = "0634584521",
-                            Description = "Cool view",
-                            Name = "Iphone 13",
-                            Price = 850
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 1,
-                            City = "Lviv",
-                            ContactInformation = "0665241245",
-                            Description = "New",
-                            Name = "MacBook 2021",
-                            Price = 2200
-                        });
                 });
 
             modelBuilder.Entity("Notice_board.Entities.Category", b =>
@@ -108,23 +73,6 @@ namespace Notice_board.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Electronic"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Sport"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Toys & Hobbies"
-                        });
                 });
 
             modelBuilder.Entity("Notice_board.Entities.Advert", b =>

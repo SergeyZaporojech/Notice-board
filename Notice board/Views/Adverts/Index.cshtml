@@ -1,15 +1,17 @@
-﻿@Model List<Notice_board.Entities.Advert>; 
+﻿@model List<Data.Entities.Advert>
 
-@*<table class="table">
+
+<a asp-action="createAdvert"  type="button" class="btn btn-primary t">Add new advert</a>
+<table class="table">
   <thead>
     <tr>
       <th scope="col">#</th> 
-      <th scope="col">Name</th>
-      <th scope="col">Category</th>
-      <th scope="col">City</th>
-      <th scope="col">Discription</th>
-      <th scope="col">Contact information</th>
-      <th scope="col">Action</th>
+      <th scope="col">name</th>
+      <th scope="col">category</th>
+      <th scope="col">city</th>
+      <th scope="col">discription</th>
+      <th scope="col">contact information</th>
+      <th scope="col">action</th>
     </tr>
   </thead>
   <tbody>
@@ -18,37 +20,20 @@
       <tr>
       <th scope="row">@a.Id</th>
       <td>@a.Name </td>
-      <td>@a.CaregoryId</td>
+      <td>@a.CategoryId</td>
       <td>@a.City</td>
       <td>@a.Description</td>
       <td>@a.ContactInformation</td>
       <td>
           <div class="btn-group" role="group">
-             <a asp-action="DitailsAdvert"  asp-route-id="@a.Id" class="btn btn-success">Detail</a> 
-             <a asp-action="DeleteAdvert"  asp-route-id="@a.Id" class="btn btn-danger ">Delete</a>             
+             <a asp-action="ditailsadvert"  asp-route-id="@a.Id" class="btn btn-success">detail</a> 
+             <a asp-action="editadvert"  asp-route-id="@a.Id" class="btn btn-warning">edit</a> 
+             <a asp-action="deleteadvert"  asp-route-id="@a.Id" class="btn btn-danger ">delete</a>             
             </div>
       </td>
     </tr>
       }       
   </tbody>
-</table>*@
+</table>
 
-<div class="container text-center">
-    <div class="row">
-         @foreach( var a in Model)
-         {
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-               @* <img src="..." class="card-img-top" alt="...">*@
-                <div class="card-body">
-                    <h5> @a.Name</h5>
-                    <p> @a.Description</p>
-                    <h5>Price: @a.Price$</h5>
-                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
-                </div>
-            </div>
-        </div>
-        }
-        
-    </div>
-</div>
+

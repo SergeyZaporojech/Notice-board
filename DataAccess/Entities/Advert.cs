@@ -1,4 +1,4 @@
-﻿namespace Notice_board.Entities
+﻿namespace Data.Entities
 {
     public class Advert
     {
@@ -12,6 +12,6 @@
         public int CategoryId { get; set; }        
 
         //----------navigation property--------------
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
     }
 }

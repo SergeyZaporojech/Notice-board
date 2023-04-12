@@ -1,4 +1,4 @@
-﻿namespace Notice_board.Entities
+﻿namespace Data.Entities
 {
     public class Category
     {
