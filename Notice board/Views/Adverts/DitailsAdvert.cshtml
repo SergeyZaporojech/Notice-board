@@ -1,11 +1,12 @@
 ﻿@model Data.Entities.Advert;
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+<div class="card text-center editAdvertCard" style="width: 18rem;">
+      <a class="nav-link bg-info active" asp-action="Index">Back</a>
+  <img src="@Model.Foto" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">@Model.Name</h5>
     <p class="card-text">@Model.Description.</p>
     <p class="card-text">Phone: @Model.ContactInformation.</p>
-   @* <a href="#" class="btn btn-primary">Go somewhere</a>*@
+    <a href="#" class="btn btn-primary">Buy</a>
   </div>
 </div>

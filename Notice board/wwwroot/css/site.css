@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.advertCard img {
+    height: 200px;
+    object-fit: contain;
+    padding: 10px 10px 10px 0;
+}
+
+.editAdvertCard img {
+    height: 400px;
+    object-fit: contain;
+    padding: 10px 10px 10px 0;
+}

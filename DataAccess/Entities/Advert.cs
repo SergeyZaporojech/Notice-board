@@ -9,7 +9,7 @@
         public string ContactInformation { get; set; }
         public int Price { get; set; }
         public string? Foto { get; set; }
-        public int CategoryId { get; set; }        
+        public int CategoryId { get; set; }         
 
         //----------navigation property--------------
         public Category? Category { get; set; }
