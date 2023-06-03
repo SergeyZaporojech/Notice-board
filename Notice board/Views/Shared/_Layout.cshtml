@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Notice_board.Services
 
+@inject UserManager<IdentityUser> UserManager
 @inject ILikeService likeService
 
 <!DOCTYPE html>
@@ -31,9 +32,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                           <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Adverts" asp-action="Index">Adverts</a>
-                        </li>          
+                        @if( User.IsInRole("Admin"))
+                        {
+                               <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Adverts" asp-action="Index">Adverts</a>
+                            </li> 
+                        }
                    
                             <li class="nav-item">
                             <a class="nav-link text-light" asp-controller="like" asp-action="index">

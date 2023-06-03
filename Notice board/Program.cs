@@ -14,8 +14,13 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AdvertDbContext>(x => x.UseSqlServer(connStr));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AdvertDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<AdvertDbContext>();
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+               .AddDefaultTokenProviders()
+               .AddDefaultUI()
+               .AddEntityFrameworkStores<AdvertDbContext>();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -33,44 +38,44 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    // seed roles
-//    var serviceProvider = scope.ServiceProvider;
+using (var scope = app.Services.CreateScope())
+{
+    // seed roles
+    var serviceProvider = scope.ServiceProvider;
 
-//    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-//    foreach (var role in Enum.GetNames(typeof(Roles)))
-//    {
-//        if (!await roleManager.RoleExistsAsync(role))
-//        {
-//            await roleManager.CreateAsync(new IdentityRole(role));
-//        }
-//    }
+    foreach (var role in Enum.GetNames(typeof(Roles)))
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
 
-//    // seed admin
-//    var userManager = serviceProvider.GetRequiredService<UserManager<InerUser>>();
+    // seed admin
+    var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-//    const string USERNAME = "myadmin@myadmin.com";
-//    const string PASSWORD = "Admin1@";
+    const string USERNAME = "sergiy@gmail.com";
+    const string PASSWORD = "Qwerty123!";
 
-//    var existingUser = userManager.FindByNameAsync(USERNAME).Result;
+    var existingUser = userManager.FindByNameAsync(USERNAME).Result;
 
-//    if (existingUser == null)
-//    {
-//        var user = new User
-//        {
-//            UserName = USERNAME,
-//            Email = USERNAME,
-//        };
+if (existingUser == null)
+{
+    var user = new IdentityUser
+    {
+        UserName = USERNAME,
+        Email = USERNAME,
+    };
 
-//        var result = userManager.CreateAsync(user, PASSWORD).Result;
-//        if (result.Succeeded)
-//        {
-//            userManager.AddToRoleAsync(user, "Admin").Wait();
-//        }
-//    }
-//}
+    var result = userManager.CreateAsync(user, PASSWORD).Result;
+    if (result.Succeeded)
+    {
+        userManager.AddToRoleAsync(user, "Admin").Wait();
+    }
+}
+}
 
 
 

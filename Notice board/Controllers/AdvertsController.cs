@@ -3,9 +3,12 @@ using Data;
 using Data.Entities;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Notice_board.Controllers
-{
+{ 
+
+    [Authorize(Roles ="Admin")]
     public class AdvertsController : Controller
     {
 
