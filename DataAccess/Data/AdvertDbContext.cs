@@ -1,11 +1,11 @@
 ﻿using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace Data
 {   
-    public class AdvertDbContext :DbContext
+    public class AdvertDbContext : IdentityDbContext
     {
         public AdvertDbContext(DbContextOptions options) : base(options) { }
         
