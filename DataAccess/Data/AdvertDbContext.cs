@@ -17,7 +17,9 @@ namespace Data
             {
             new Category() { Id = 1,Name="Electronic"},
             new Category() { Id = 2,Name="Sport"},
-            new Category() { Id = 3,Name="Toys & Hobbies"}
+            new Category() { Id = 3,Name="Toys & Hobbies"},
+            new Category() { Id = 4,Name="Car"},
+
             });
 
             modelBuilder.Entity<Advert>().HasData(new[]
